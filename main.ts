@@ -1,62 +1,18 @@
-let Valor_dado = 0
-let Temp = 0
 input.onButtonPressed(Button.A, function () {
-    Valor_dado = randint(1, 6)
-    basic.showNumber(Valor_dado)
-    if (Valor_dado == 1) {
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . # . .
-            . . . . .
-            . . . . .
-            `)
-    } else if (Valor_dado == 2) {
-        basic.showLeds(`
-            . . . . #
-            . . . . .
-            . . . . .
-            . . . . .
-            # . . . .
-            `)
-    } else if (Valor_dado == 3) {
-        basic.showLeds(`
-            . . . . #
-            . . . . .
-            . . # . .
-            . . . . .
-            # . . . .
-            `)
-    } else if (Valor_dado == 4) {
-        basic.showLeds(`
-            # . . . #
-            . . . . .
-            . . . . .
-            . . . . .
-            # . . . #
-            `)
-    } else if (Valor_dado == 5) {
-        basic.showLeds(`
-            # . . . #
-            . . . . .
-            . . # . .
-            . . . . .
-            # . . . #
-            `)
-    } else {
-        basic.showLeds(`
-            # . . . #
-            . . . . .
-            # . . . #
-            . . . . .
-            # . . . #
-            `)
-    }
-    Temp = 0
-    if (Valor_dado > 0) {
-        Temp = Temp + Valor_dado
-    } else {
+    if (Clientes < 2) {
         basic.showIcon(IconNames.No)
+    } else if (Clientes >= 2) {
+        Clientes = Clientes - 1
+        basic.showNumber(Clientes)
     }
-    basic.showNumber(Temp)
 })
+input.onButtonPressed(Button.AB, function () {
+    Clientes = 0
+    basic.showNumber(Clientes)
+})
+input.onButtonPressed(Button.B, function () {
+    Clientes = Clientes + 1
+    basic.showNumber(Clientes)
+})
+let Clientes = 0
+Clientes = 0
